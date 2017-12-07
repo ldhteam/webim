@@ -9,6 +9,8 @@ class Page extends \Swoole\Controller
     {
         $this->session->start();
         $_SESSION['isLogin'] = 1;
+        $user = json_decode('{"id":"2767","username":"sina_1967057333","usertype":"0","nickname":"\u4e00\u5207\u5747\u968f\u98ce","realname":"","intro":"","sex":"","email":"","mobile":"","php_level":"0","skill":"","company":"","blog":"http:\/\/blog.sina.com.cn\/engowiththewind","birth_year":"0","work_year":"0","avatar":"http:\/\/tva4.sinaimg.cn\/crop.0.0.180.180.180\/753ee9b5jw1e8qgp5bmzyj2050050aa8.jpg","education":"","certificate":"","province":"\u5317\u4eac","city":"\u671d\u9633\u533a","active_days":"0","vip":"0","gold":"0","login_times":"0"}');
+        $_SESSION['user'] = json_decode($user, true);
         if (!empty($_SESSION['isLogin']))
         {
             chatroom:
@@ -20,7 +22,6 @@ class Page extends \Swoole\Controller
         {
             $curl = new CURL();
             $user = $curl->get($this->config['login']['get_user_info'] . '?token=' . urlencode($_GET['token']));
-            $user = json_decode('{"id":"2767","username":"sina_1967057333","usertype":"0","nickname":"\u4e00\u5207\u5747\u968f\u98ce","realname":"","intro":"","sex":"","email":"","mobile":"","php_level":"0","skill":"","company":"","blog":"http:\/\/blog.sina.com.cn\/engowiththewind","birth_year":"0","work_year":"0","avatar":"http:\/\/tva4.sinaimg.cn\/crop.0.0.180.180.180\/753ee9b5jw1e8qgp5bmzyj2050050aa8.jpg","education":"","certificate":"","province":"\u5317\u4eac","city":"\u671d\u9633\u533a","active_days":"0","vip":"0","gold":"0","login_times":"0"}');
             if (empty($user))
             {
                 login:
