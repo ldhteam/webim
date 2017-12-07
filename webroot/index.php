@@ -1,4 +1,5 @@
 <?php
+echo 1111;die();
 define('DEBUG', 'on');
 define('WEBPATH', __DIR__);
 define('ROOT_PATH', dirname(__DIR__));
