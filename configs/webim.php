@@ -23,7 +23,7 @@ $config['swoole'] = array(
 $config['webim'] = array(
     //聊天记录存储的目录
     'log_file' => ROOT_PATH . '/log/webim.log',
-    'send_interval_limit' => 2, //只允许1秒发送一次
+    'send_interval_limit' => 0, //只允许1秒发送一次
 );
 
 $config['storage'] = array(
